@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css?family=Kulim+Park:400,700&display=swap');
+
+$red: #ed6a5a;
+$yellow: #ffee93;
+$blue: #a0ced9;
+$black: #5d576b;
+$white: #F2F0E6;
+$green: #c0f7c7;
+
+.App {
+  height: 100vh;
+  display: block;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: $white;
+  font-family: "Kulim Park";
+
+  div.top {
+    background-color: $blue;
+    border-bottom: 1px solid darken($blue, 20);
+    display: flex;
+    flex-direction: row;
+    padding: 8px;
+
+    div.changeport {
+      input[type=text] {
+        width: 48px;
+      }
+    }
+
+    span.spacer {
+      font-size: 18px;
+      line-height: 18px;
+      margin: 0 8px;
+      color: $red;
+    }
+
+    div.serialwrite {
+      flex: 1;
+      form {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        label {
+          flex: 1;
+          display: flex;
+          input[type=text] {
+            flex: 1;
+            width: 50px;
+          }
+        }
+      }
+    }
+  }
+
+  div.mainview {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    padding: 1.5% .5% .5% 1.5%;
+
+    div.row {
+      height: 33%;
+      display: flex;
+      flex-direction: row;
+
+      div.box {
+        width: 33%;
+        //border: 1px solid black;
+        display: block;
+      }
+    }
+  }
+  div.logs {
+    background-color: $black;
+    border-top: 1px solid darken($black, 20);
+    font-family: monospace;
+    font-size: 12px;
+    padding: 2px 4px;
+
+    span {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      display: block;
+      height: 1.2em;
+      color: $white;
+    }
+  }
+}
+
+div.servo, div.weapon, div.vibrator {
+  position: relative;
+  h2 {
+    font-family: monospace;
+    font-size: 14px;
+    margin: 8px 0 4px;
+  }
+  div.controls {
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+    margin-left: 20%;
+    background-color: $white;
+
+    span.servoPositionsTitle {
+      font-weight: bold;
+    }
+  
+    div.react-toggle {
+      transform: scale(.5);
+      margin: -7px;
+    }
+    label {
+      margin-bottom: 2px;
+      
+      input[type=text] {
+        width: 64px;
+      }
+    }
+    div.progressbar {
+      width: 150px;
+      border: 2px solid $red;
+      border-radius: 3px;
+      margin: 4px;
+      position: relative;
+      text-align: center;
+
+      span {
+        font-family: monospace;
+        font-size: 10px;
+        font-weight: bold;
+        line-height: 12px;
+        position: relative;
+        z-index: 2;
+      }
+      div.filler {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: $red;
+        height: 100%;
+        width: 50%;
+      }
+    }
+  }
+  img {
+    transform: rotate(270deg);
+    width: 20%;
+    position: absolute;
+  }
+}
+
+div.weapon img {
+  transform: rotate(180deg);
+}
+
+div.vibrator img {
+  transform: rotate(45deg) scale(.7);
+}
+
+input {
+  border-radius: 3px;
+  border: 2px solid $yellow;
+  font-family: monospace;
+  font-size: 14px;
+  margin: 0 4px;
+  vertical-align: 1px;
+
+  &[type=submit]:hover {
+    cursor: pointer;
+    background-color: $yellow;
+  }
+}
+
+label span.underline {
+  border-bottom: 3px solid $green;
+}
+
+
