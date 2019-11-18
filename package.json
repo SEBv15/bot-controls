@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "electron": "^7.1.1",
-    "electron-rebuild": "^1.8.6",
     "foreman": "^3.0.1",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
@@ -12,6 +10,10 @@
     "react-scripts": "3.2.0",
     "react-toggle": "^4.1.1",
     "serialport": "^8.0.5"
+  },
+  "devDependencies": {
+    "electron": "^7.1.1",
+    "electron-rebuild": "^1.8.6"
   },
   "main": "src/main.js",
   "homepage": "./",
