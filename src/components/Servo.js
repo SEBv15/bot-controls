@@ -18,24 +18,29 @@ export default class Servo extends Component {
         this.state = {...this.state, ...this.state.servo.getData()}
     }
     handleForwardOffChange = (event) => {
-        this.setState({forwardOff: event.target.value});
-        this.state.servo.setPosValue("forwardOff", event.target.value)
+        var normalized = Math.min(180, Math.max(0, event.target.value))
+        this.setState({forwardOff: normalized});
+        this.state.servo.setPosValue("forwardOff", normalized)
     }
     handleForwardChange = (event) => {
-        this.setState({forward: event.target.value});
-        this.state.servo.setPosValue("forward", event.target.value)
+        var normalized = Math.min(180, Math.max(0, event.target.value))
+        this.setState({forward: normalized});
+        this.state.servo.setPosValue("forward", normalized)
     }
     handleBackwardOffChange = (event) => {
-        this.setState({backwardOff: event.target.value});
-        this.state.servo.setPosValue("backwardOff", event.target.value)
+        var normalized = Math.min(180, Math.max(0, event.target.value))
+        this.setState({backwardOff: normalized});
+        this.state.servo.setPosValue("backwardOff", normalized)
     }
     handleBackwardChange = (event) => {
-        this.setState({backward: event.target.value});
-        this.state.servo.setPosValue("backward", event.target.value)
+        var normalized = Math.min(180, Math.max(0, event.target.value))
+        this.setState({backward: normalized});
+        this.state.servo.setPosValue("backward", normalized)
     }
     handleOffChange = (event) => {
-        this.setState({off: event.target.value});
-        this.state.servo.setPosValue("off", event.target.value)
+        var normalized = Math.min(180, Math.max(0, event.target.value))
+        this.setState({off: normalized});
+        this.state.servo.setPosValue("off", normalized)
     }
     handleCheeseChange = (e) => {
         this.setState({twoLegs: e.target.checked})

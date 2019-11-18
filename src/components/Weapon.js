@@ -21,6 +21,11 @@ export default class Weapon extends Component {
         this.setState({maxSpeed: newSpeed});
         this.state.weapon.setMaxSpeed(newSpeed)
     }
+    handleStepChange = (event) => {
+        var newStep = Math.min(180, Math.max(0, event.target.value))
+        this.setState({step: newStep});
+        this.state.weapon.setStep(newStep)
+    }
     render() {
         return (
             <div class="weapon">
@@ -30,6 +35,10 @@ export default class Weapon extends Component {
                     <label>
                         <input className="maxSpeed" type="text" value={this.state.maxSpeed} onChange={this.handleMaxSpeedChange} />
                         <span class={this.state.speed == this.state.maxSpeed?"underline":""}>Max Speed</span>
+                    </label>
+                    <label>
+                        <input className="step" type="text" value={this.state.step} onChange={this.handleStepChange} />
+                        Step Size
                     </label>
                     <div class="progressbar">
                         <div class="filler" style={{width: (this.state.speed/this.state.maxSpeed*100)+"%"}}></div>

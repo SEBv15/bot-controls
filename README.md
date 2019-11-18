@@ -17,6 +17,10 @@ to start react and launch electron.
 $ npm start
 $ npm run electron
 ```
+## Arduino Code
+This program in `arduino-code/` is written for the Romeo BLE Mini using external ESCs for the vibration and weapon motors.
+
+The communication with the board is intended to happen through a dongle similar to the [Bluno Link](https://www.dfrobot.com/product-1220.html) which provides a serial port and handles all the BLE bullshit for you.
 
 ## Building the program for Windows
 ```

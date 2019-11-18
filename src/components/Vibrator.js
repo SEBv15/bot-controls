@@ -15,12 +15,14 @@ export default class Vibrator extends Component {
         this.state = {...this.state, ...this.state.vibrator.getData()}
     }
     handleSpeedChange = (event) => {
-        this.setState({normal: event.target.value});
-        this.state.vibrator.setPosValue("normal", event.target.value)
+        var normalized = Math.min(180, Math.max(0, event.target.value))
+        this.setState({normal: normalized});
+        this.state.vibrator.setPosValue("normal", normalized)
     }
     handleMaxSpeedChange = (event) => {
-        this.setState({max: event.target.value});
-        this.state.vibrator.setPosValue("max", event.target.value)
+        var normalized = Math.min(180, Math.max(0, event.target.value))
+        this.setState({max: normalized});
+        this.state.vibrator.setPosValue("max", normalized)
     }
     render() {
         return (

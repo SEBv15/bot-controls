@@ -213,10 +213,10 @@ class Weapon {
         }
     }
     spinUp() {
-        this._setSpeed(Math.min(this._maxSpeed, this._speed + 20))
+        this._setSpeed(Math.min(this._maxSpeed, this._speed + this._step))
     }
     spinDown() {
-        this._setSpeed(Math.max(0, this._speed - 20))
+        this._setSpeed(Math.max(0, this._speed - this._step))
     }
     _dataFromLocalStorage() {
         var data = JSON.parse(localStorage.getItem(this._which + "Weapon"));
