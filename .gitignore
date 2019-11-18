@@ -11,6 +11,9 @@
 # production
 /build
 
+# exclude builds because of size
+/dist
+
 # misc
 .DS_Store
 .env.local
