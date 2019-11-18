@@ -22,6 +22,7 @@
     "eject": "react-scripts eject",
     "dev": "nf start",
     "electron": "electron .",
+    "pack:win64": "electron-packager . \"Robot Controls\" --out=dist/win --platform=win32 --arch=x64 --icon=src/icon.ico",    
     "electron-dev": "set ELECTRON_START_URL=http://localhost:3000 && electron ."
   },
   "eslintConfig": {

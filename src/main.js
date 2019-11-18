@@ -12,6 +12,7 @@ const url = require('url');
 let mainWindow;
 
 function createWindow() {
+    electron.Menu.setApplicationMenu(null)
     // Create the browser window.
     mainWindow = new BrowserWindow({
         width: 800, 
@@ -33,7 +34,7 @@ function createWindow() {
     mainWindow.loadURL(startUrl);
 
     // Open the DevTools.
-    mainWindow.webContents.openDevTools();
+    //mainWindow.webContents.openDevTools();
     
     mainWindow.setMenuBarVisibility(false)
     mainWindow.setTitle("Robot Controls")
