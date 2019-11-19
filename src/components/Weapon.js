@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import serial from './../serial';
 import weapon from './weapon.svg';
-import controls from '../controls';
+import controls from '../controls/controls';
 
 export default class Weapon extends Component {
 

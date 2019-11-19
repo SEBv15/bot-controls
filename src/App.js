@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.scss'; 
 import serial from './serial';
-import controls from './controls'
+import controls from './controls/controls'
 import SerialWrite from './components/SerialWrite'
 import ChangePort from './components/ChangePort'
 import Servo from './components/Servo'
@@ -10,12 +10,24 @@ import Weapon from './components/Weapon'
 import Vibrator from './components/Vibrator'
 
 class App extends Component {
-  state = {"serial": ""}
+  state = {
+    "serial": "",
+    keyMap: {
+      87: 'w',
+      65: 'a',
+      83: 's',
+      68: 'd',
+      32: 'space',
+      16: 'shift',
+      17: 'ctrl'
+    }
+  }
   componentDidMount() {
     serial.subscribe((data) => {
       this.setState({serial: data})
     })
     document.addEventListener("keydown", this.handleKeyDown);
+    document.addEventListener("keyup", this.handleKeyUp);
     setTimeout(() => {
       window.require("electron").ipcRenderer.on('keyDown', (e, letter) => {
         document.dispatchEvent(new KeyboardEvent('keydown', {'ctrlKey':true,'keyCode': 87}))
@@ -23,38 +35,16 @@ class App extends Component {
     }, 1000)
   }
   handleKeyDown = (e) => {
-    if (document.activeElement.nodeName != "INPUT") {
-      console.log(e.keyCode, e.ctrlKey)
-      switch(e.keyCode) {
-        // w
-        case 87:
-          controls.sendMove(false, e.ctrlKey)
-          break;
-        // a
-        case 65:
-          controls.sendTurn(true)
-          break;
-        // s
-        case 83:
-          controls.sendMove(true, e.ctrlKey)
-          break;
-        // d
-        case 68:
-          controls.sendTurn(false)
-          break;
-        // space
-        case 32:
-          controls.sendWeapon(false)
-          break;
-        // shift
-        case 16:
-          controls.sendWeapon(true)
-          break;
-        default:
-          return;
-      }
+    if (document.activeElement.nodeName == "INPUT") return
+    if (this.state.keyMap[e.keyCode]) {
       e.preventDefault()
+      controls.onKey(this.state.keyMap[e.keyCode])
     }
+  }
+  handleKeyUp = (e) => {
+    if (document.activeElement.nodeName == "INPUT") return
+    if (this.state.keyMap[e.keyCode])
+      controls.offKey(this.state.keyMap[e.keyCode])    
   }
   render() {
     return (

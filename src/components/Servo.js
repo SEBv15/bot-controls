@@ -3,7 +3,7 @@ import serial from './../serial';
 import servo from './servo.svg';
 import Toggle from 'react-toggle'
 import "react-toggle/style.css";
-import controls from './../controls'
+import controls from './../controls/controls'
 
 export default class Servo extends Component {
     constructor(props) {
