@@ -47,10 +47,9 @@ To control the robot simply unfocus any input field and use the following key co
 | Key Combo | Action |
 | --- | --- |
 | `W` | Forward |
-| `Ctrl+W` | Vibrator Max Speed + Forward |
 | `S` | Backwards |
-| `Ctrl+S` | Vibrator Max Speed + Backwards |
-| `A` | Only right legs down -> Turn Left |
-| `D` | Only left legs down -> Turn Right |
+| `A` | Turn Left |
+| `D` | Turn Right |
 | `Space` | Spin Weapon Up |
 | `Shift` | Spin Weapon Down |
+| `Ctrl` | Set vibration speed to max |
