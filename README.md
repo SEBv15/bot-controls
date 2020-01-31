@@ -1,4 +1,8 @@
 # Robot Controls
+
+## Running windows build
+Go to the releases tab and download the zip file containing the executable
+
 ## Running Dev Version
 I created this on windows, so I don't know if it will run on other platforms
 
